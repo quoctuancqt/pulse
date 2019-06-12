@@ -1,0 +1,73 @@
+﻿<script type="text/ng-template" id="customTemplate.html">
+    <a>
+        <span bind-html-unsafe="match.label | typeaheadHighlight:query"></span>
+    </a>
+</script>
+<div id="{{handler}}" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">{{header}}</h4>
+                <img src="{{headerLogo}}" width="120px" />
+            </div>
+            <div class="modal-body">
+                <span class="{{messageType}}">{{bodyContent}}</span>
+                <form name="input_form">
+                    <div ng-repeat="option in options">
+                        <md-input-container class="md-block" ng-if="option.properties.isVisible && option.type == 'string' && option.title != 'Address'">
+                            <input type="text" placeholder="{{option.placeholder ? option.placeholder : option.title}}" ng-required="option.properties.isRequired" id="{{option.id}}" ng-model="option.value" name="{{option.id}}" ng-disabled="option.properties.isDisable" />
+                            <div class="pulse-error-message" ng-messages="input_form[option.id].$error">
+                                <span ng-message="required">Please input {{option.title}}.</span>
+                            </div>
+                        </md-input-container>
+                        <md-input-container class="md-block" ng-if="option.properties.isVisible && option.type == 'string' && option.title == 'Address'">
+                            <input type="text" placeholder="{{option.placeholder ? option.placeholder : option.title}}" ng-required="option.properties.isRequired" id="{{option.id}}" ng-model="option.value" name="{{option.id}}" ng-autocomplete />
+                            <div class="pulse-error-message" ng-messages="input_form[option.id].$error">
+                                <span ng-message="required">Please input {{option.title}}.</span>
+                            </div>
+                        </md-input-container>
+                        <md-input-container class="md-block" ng-if="option.properties.isVisible && option.type == 'autocomplete'">
+                            <input type="text" ng-model="option.value" placeholder="Search Countries" typeahead="c as c.value for c in option.data | filter:$viewValue | limitTo:10" typeahead-min-length='1' typeahead-on-select='onSelectPart($item, $model, $label)' typeahead-template-url="customTemplate.html" class="form-control" style="width:350px;" name="{{option.id}}" ng-disabled="option.properties.isDisable" ng-required="option.properties.isRequired" id="{{option.id}}" />
+                            <div class="pulse-error-message" ng-messages="input_form[option.id].$error" role="alert">
+                                <span ng-message="required">Please input {{option.title}}.</span>
+                            </div>
+                        </md-input-container>
+                        <md-input-container class="md-block" ng-if="option.properties.isVisible && option.type == 'email'">
+                            <input type="email" placeholder="{{option.placeholder ? option.placeholder : option.title}}" ng-required="option.properties.isRequired" id="{{option.id}}" ng-model="option.value" name="{{option.id}}" ng-disabled="option.properties.isDisable" />
+                            <div class="pulse-error-message" ng-messages="input_form[option.id].$error">
+                                <span ng-message="required">Please input {{option.title}}.</span>
+                                <span ng-message="email">Email not valid.</span>
+                            </div>
+                        </md-input-container>
+                        <md-input-container class="md-block" ng-if="option.properties.isVisible && option.type == 'int'">
+                            <input type="number" placeholder="{{option.placeholder ? option.placeholder : option.title}}" id="{{option.id}}" ng-model="option.value" name="{{option.id}}" step="1" min="{{option.properties.min}}" max="{{option.properties.max}}" ng-required="option.properties.isRequired" />
+                            <div class="pulse-error-message" ng-messages="input_form[option.id].$error">
+                                <span ng-message="required">Please input {{option.title}}.</span>
+                                <span ng-message="number">{{option.title}} require numeric.</span>
+                                <span ng-message="min">Please input value from {{option.properties.min}} to {{option.properties.max}}</span>
+                                <span ng-message="max">Please input value from {{option.properties.min}} to {{option.properties.max}}</span>
+                            </div>
+                        </md-input-container>
+                        <md-select-menu-container style="margin-top:-20px;margin-left:10px;" ng-if="option.properties.isVisible && option.type == 'select'">
+                            <span>{{option.title}}</span>
+                            <md-select placeholder="Select" ng-model="option.value" ng-required="option.properties.isRequired">
+                                <md-option ng-repeat="i in option.data" value="{{i.id}}" ng-selected="option.value == i.id">{{i.value}}</md-option>
+                            </md-select>
+                        </md-select-menu-container>
+                        <md-input-container class="md-block" ng-if="option.properties.isVisible && option.type == 'richtext'">
+                            <textarea name="{{option.id}}" ng-model="option.value" ng-required="option.properties.isRequired" aria-label="{{option.id}}"></textarea>
+                            <div class="pulse-error-message" ng-messages="input_form[option.id].$error">
+                                <span ng-message="required">Please input {{option.title}}.</span>
+                            </div>
+                        </md-input-container>
+                    </div>
+                    <div ng-if="popupType == 'confirm'">
+                        <md-button class="md-raised md-primary margin-left-0 margin-right-0 margin-top-10 margin-bottom-10" data-ng-click="callbackSubmit(); $event.stopPropagation()" translate="Submit" ng-disabled="input_form.$invalid">Submit</md-button>
+                        <md-button class="md-raised md-primary margin-left-0 margin-right-0 margin-top-10 margin-bottom-10" data-ng-click="callbackCancel(); $event.stopPropagation()" translate="Cancel">Cancel</md-button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

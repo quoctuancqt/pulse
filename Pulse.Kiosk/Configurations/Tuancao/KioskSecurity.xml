@@ -1,0 +1,13 @@
+﻿<Kiosks>
+  <Security>
+    <LicenseKey>310ad163-06b0-43d5-a8d6-7b56d1160218</LicenseKey>
+    <ClientId>ef861d6d73d54900b26c71ddd4d47597</ClientId>
+    <MachineId>310ad163-06b0-43d5-a8d6-7b56d1160218</MachineId>
+    <UserEncrypted>qpqzD/JGzk/Mpz3LVNHB3fR17dLN/Agyo36Z83F8dwzZy8hA94WS2fyYnNZmZMVS</UserEncrypted>
+    <SaltKey>UoFy8bOqvVd5cH7Pt+Y=</SaltKey>
+    <VIKey>@1B2c3D4e5F6g7H8</VIKey>
+    <PasswordHash>AMX0xcOPNotDWgS9jIuFVtTYtezl49Wh+O9BqVE/ZsTTJQyTOh8lTd2Cp/dtgAWZrg==</PasswordHash>
+    <Token></Token>
+    <RefreshToken></RefreshToken>
+  </Security>
+</Kiosks>

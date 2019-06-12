@@ -1,0 +1,81 @@
+<div class="md-toolbar-tools" id="pulse-top">
+    <md-button class="md-icon-button" ng-if="!vm.hideMenuButton()" ng-click="vm.openSideNav('left')" aria-label="side navigation">
+        <md-icon md-font-icon="zmdi zmdi-menu"></md-icon>
+    </md-button>
+
+    <h2 hide-xs flex>
+        <span ng-repeat="crumb in vm.breadcrumbs.crumbs">
+            <span translate>{{crumb.name}}</span>
+            <md-icon md-font-icon="zmdi zmdi-chevron-right" ng-if="!$last"></md-icon>
+        </span>
+    </h2>
+
+    <!--<md-switch ng-model="vm.isDarkMode" aria-label="Switch 2" class="md-primary" ng-click="vm.changeDarkMode()">
+        Dark Mode
+    </md-switch>-->
+
+    <md-button class="md-icon-button toolbar-button" ng-click="vm.toggleFullScreen()" aria-label="toggle fullscreen">
+        <md-icon md-font-icon ng-class="vm.fullScreenIcon"></md-icon>
+    </md-button>
+
+    <!--<md-menu ng-show="vm.languages.length > 0">
+        <md-button class="md-icon-button" aria-label="language" ng-click="$mdOpenMenu()" aria-label="change language">
+            <md-icon md-font-icon="zmdi zmdi-globe-alt"></md-icon>
+        </md-button>
+        <md-menu-content width="3">
+            <md-menu-item ng-repeat="language in ::vm.languages">
+                <md-button ng-click="vm.switchLanguage(language.key)" translate="{{::language.name}}" aria-label="{{::language.name}}"></md-button>
+            </md-menu-item>
+        </md-menu-content>
+    </md-menu>-->
+    <!--<md-button class="md-icon-button toolbar-button animated" ng-click="vm.toggleNotificationsTab(0)" aria-label="side navigation">
+        <md-icon md-font-icon="zmdi zmdi-email"></md-icon>
+        <span class="toolbar-button-badge animated" theme-background="accent" ng-class="{ 'toolbar-button-badge-new' : vm.emailNew }">5</span>
+    </md-button>-->
+
+    <md-button class="md-icon-button toolbar-button" ng-click="vm.toggleNotificationsTab(1)">
+        <md-icon md-font-icon="fa fa-bell-o"></md-icon>
+        <span class="toolbar-button-badge" theme-background="accent">{{vm.notificationCount}}</span>
+    </md-button>
+
+    <!--<md-checkbox aria-label="Default Checkbox" ng-click="vm.changeDarkMode()" ng-model="vm.isDarkMode">
+        Dark Mode
+    </md-checkbox>-->
+    <!--<md-button class="md-icon-button" ng-click="vm.toggleSearch()" aria-label="{{'Toggle Menu' | triTranslate}}">
+        <md-icon md-font-icon="zmdi zmdi-search"></md-icon>
+    </md-button>
+    <input class="toolbar-search" ng-show="vm.showSearch" ng-model="emailSearch" ng-change="vm.filterEmailList(emailSearch)" type="text" placeholder="{{'Search' | triTranslate}}">-->
+
+    <md-menu>
+        <md-button aria-label="Open user menu" ng-click="$mdOpenMenu()" aria-label="side navigation">
+            <img class="toolbar-user-avatar" ng-src="{{vm.currentUser.avatar}}" />{{vm.currentUser.fullName}}
+        </md-button>
+        <md-menu-content width="4">
+            <!--<md-menu-item>
+                <md-button ng-click="vm.toggleNotificationsTab(2)" aria-label="side navigation">
+                    <md-icon md-font-icon="zmdi zmdi-settings"></md-icon>
+                    <span translate="Settings">Settings</span>
+                </md-button>
+            </md-menu-item>-->
+            <md-menu-item>
+                <md-button href="#/profile" aria-label="side navigation">
+                    <md-icon md-font-icon="zmdi zmdi-account"></md-icon>
+                    <span translate="Profile">Profile</span>
+                </md-button>
+            </md-menu-item>
+            <md-menu-item>
+                <md-button href="#/password-management" aria-label="side navigation">
+                    <md-icon md-font-icon="zmdi zmdi-key"></md-icon>
+                    <span translate="Change Password">Change Password</span>
+                </md-button>
+            </md-menu-item>
+            <md-menu-divider></md-menu-divider>
+            <md-menu-item>
+                <md-button ng-click="vm.logout()" aria-label="side navigation">
+                    <md-icon md-font-icon="zmdi zmdi-sign-in"></md-icon>
+                    <span translate="Logout">Logout</span>
+                </md-button>
+            </md-menu-item>
+        </md-menu-content>
+    </md-menu>
+</div>

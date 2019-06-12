@@ -1,0 +1,42 @@
+﻿<div class="dashboard-container overlay-10 padded-content-page pulse-dashboard-style" layout="column">
+    <md-progress-linear id="loading" class="margin-bottom-20" md-mode="indeterminate"></md-progress-linear>
+    <div class="box box-primary">
+        <div class="box-header with-border">
+            <h3 class="box-title pulse-toggle-box-title">Search</h3>
+            <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-toggle="collapse" data-target="#search_box">
+                    <i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+            </div>
+        </div>
+        <div id="search_box" class="collapse in">
+            <div class="md-toolbar-tools" style="margin-top:30px;">
+                <md-input-container class="md-block">
+                    <label>License Key</label>
+                    <input type="text" ng-model="vm.searchLicenseKey">
+                </md-input-container>
+                <md-select-menu-container style="margin-top:-20px;margin-left:10px;">
+                    <md-select placeholder="Select Status" ng-model="vm.searchStatus">
+                        <md-option ng-repeat="s in vm.status" value="{{s.value}}">{{s.label}}</md-option>
+                    </md-select>
+                </md-select-menu-container>
+                <md-select-menu-container style="margin-top:-20px;margin-left:10px;" ng-if="vm.isAdmin">
+                    <md-select placeholder="Select Client" ng-model="vm.searchClientId">
+                        <md-option ng-repeat="c in vm.clients" value="{{c.id}}" ng-selected="vm.searchClientId == c.id">{{c.value}}</md-option>
+                    </md-select>
+                </md-select-menu-container>
+                <md-input-container class="md-block">
+                    <md-button class="md-raised md-default md-primary" style="margin-top:-30px;" aria-label="flat button" ng-click="vm.search(true)">Search</md-button>
+                </md-input-container>
+            </div>
+        </div>
+    </div>
+    <div class="configuration-block-header">
+        LICENSE MANAGEMENT
+        <md-button class="md-raised md-default md-primary" style="float:right;" aria-label="flat button" ng-click="vm.generate()" ng-if="vm.isAdminstrator">Generate</md-button>
+    </div>
+    <div id="grid" ui-grid="vm.gridOptions" class="grid" ng-style="vm.getTableHeight();" ui-grid-auto-resize ui-grid-edit ui-grid-row-edit></div>
+    <input-form my-handler="vm.formSetting.handler" modal-type="vm.formSetting.popupType" modal-header-logo="vm.formSetting.headerLogo" options="vm.licenseSchema" modal-header="vm.formSetting.header" data-ng-click-submit-button="vm.formSetting.submitButton()" data-ng-click-cancel-button="vm.formSetting.cancelButton()"></input-form>
+    <paging options="vm.paginationOptions" style="position:relative;"></paging>
+</div>

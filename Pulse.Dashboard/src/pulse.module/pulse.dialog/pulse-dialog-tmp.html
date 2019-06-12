@@ -1,0 +1,24 @@
+﻿<div id="{{handler}}" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">{{header}}</h4>
+                <img id="modal-header-logo" src="{{headerLogo}}" />
+            </div>
+            <div class="modal-body">
+                <i class="{{icon}}" aria-hidden="true"> <span class="{{messageType}}">{{body}}</span></i>
+            </div>
+            <div class="modal-footer" ng-show="isConfirm">
+                <h4 class="text-warning">{{footer}}</h4>
+                <button type="button" class="btn btn-default" data-ng-click="callbackbuttonright(); $event.stopPropagation()">Yes</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+            </div>
+            <div class="modal-footer" ng-show="!isConfirm && isSuccess !== undefined">
+                <h4 class="text-warning">{{footer}}</h4>
+                <button type="button" class="btn btn-default" data-ng-click="callbackbuttonright(); $event.stopPropagation()" ng-if="isSuccess">Ok</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" ng-if="!isSuccess">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

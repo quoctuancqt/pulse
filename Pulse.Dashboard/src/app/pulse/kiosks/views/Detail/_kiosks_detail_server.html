@@ -1,0 +1,41 @@
+<tri-widget server-widget>
+	<md-tabs layout-fill flex md-dynamic-height md-no-disconnect md-stretch-tabs="always" md-no-pagination>
+		<md-tab label="{{'Real Time' | triTranslate}}">
+			<md-content class="md-padding">
+                <h1 class="md-headline"><span translate>Bandwidth</span> <span class="md-caption">(Kbps)</span></h1>
+                <performance-graph-widget setting="vm.pulseViewModel.bandwidth"></performance-graph-widget>
+                <h1 class="md-headline"><span translate>CPU</span> <span class="md-caption">(%)</span></h1>
+                <performance-graph-widget setting="vm.pulseViewModel.cpu"></performance-graph-widget>
+                <h1 class="md-headline"><span translate>Memory</span> <span class="md-caption">(%)</span></h1>
+                <performance-graph-widget setting="vm.pulseViewModel.memory"></performance-graph-widget>
+			</md-content>
+		</md-tab>
+        <md-tab label="{{'Playback' | triTranslate}}">
+            <md-content class="md-padding">
+                <md-toolbar>
+                    <div class="md-toolbar-tools">
+                        <label>From</label>
+                        <span flex></span>
+                        <md-datepicker ng-model="vm.startDate" md-placeholder="Start date"></md-datepicker>
+                        <span flex></span>
+                        <label>To</label>
+                        <span flex></span>
+                        <md-datepicker ng-model="vm.endDate" md-placeholder="End date" md-min-date="vm.endDate"></md-datepicker>
+                        <span flex></span>
+                        <md-button class="md-icon-button" aria-label="View" ng-click="vm.view()">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </md-button>
+                    </div>
+                </md-toolbar>
+                <div>
+                    <h1 class="md-headline"><span translate>Bandwidth</span> <span class="md-caption">(Kbps)</span></h1>
+                    <play-back setting="vm.pulsePlaybackModel.bandwidth"></play-back>
+                    <h1 class="md-headline"><span translate>CPU</span> <span class="md-caption">(%)</span></h1>
+                    <play-back setting="vm.pulsePlaybackModel.cpu"></play-back>
+                    <h1 class="md-headline"><span translate>Memory</span> <span class="md-caption">(%)</span></h1>
+                    <play-back setting="vm.pulsePlaybackModel.memory"></play-back>
+                </div>
+            </md-content>
+        </md-tab>
+	</md-tabs>
+</tri-widget>

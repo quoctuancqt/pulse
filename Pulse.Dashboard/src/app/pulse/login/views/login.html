@@ -1,0 +1,31 @@
+﻿<md-progress-linear id="loading" class="margin-bottom-20" md-mode="indeterminate"></md-progress-linear>
+<md-card style="width:500px;">
+    <md-toolbar class="padding-20 text-center" style="min-height:100px;">
+        <img src="../../../../assets/images/logo.png" class="pulse-logo" />
+        <h3 class="md-headline" translate>Login</h3>
+    </md-toolbar>
+
+    <md-content class="md-padding">
+        <form name="login_form">
+            <md-input-container class="md-block">
+                <input type="text" placeholder="Username" required="" id="username" ng-model="username" name="username" />
+                <div ng-messages="login_form.username.$error" md-auto-hide="false" ng-show="login_form.username.$touched">
+                    <div ng-message when="required"><span translate>Please enter your username.</span></div>
+                </div>
+            </md-input-container>
+            <md-input-container class="md-block">
+                <input type="password" placeholder="Password" required="" id="password" ng-model="password" name="password" />
+                <div ng-messages="login_form.password.$error" md-auto-hide="false" ng-show="login_form.password.$touched">
+                    <div ng-message when="required"><span translate>Please enter your password.</span></div>
+                </div>
+            </md-input-container>
+            <md-button class="md-raised md-primary full-width margin-left-0 margin-right-0 margin-top-10 margin-bottom-10" ng-click="submitForm(login_form)" translate="Log in">Login</md-button>
+        </form>
+    </md-content>
+    <md-toolbar class="text-center cls-backgroud-color" style="min-height:20px;position:relative;">
+        <span style="color:black; font-size:14px;" class="pulse-footer-name" translate ng-bind-html="name"></span>
+        <span style="color:black; font-size:14px;" claas="pulse-footer-copyright" translate ng-bind-html="copyright"></span>
+        <span style="color:black; font-size:14px;" class="pulse-footer-version" translate ng-bind-html="version"></span>
+    </md-toolbar>
+    <message-box my-handler="modelSetting.handler" modal-is-success="modelSetting.isSuccess" modal-header-logo="modelSetting.headerLogo" modal-is-confirm="modelSetting.isConfirm" modal-body="modelSetting.body" modal-footer="modelSetting.footer" modal-header="modelSetting.header" message-type="modelSetting.messageType" message-icon="modelSetting.icon" data-ng-click-right-button="modelSetting.myRightButton()"></message-box>
+</md-card>

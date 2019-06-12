@@ -1,0 +1,20 @@
+<tri-widget>
+	<div flex layout="row" layout-margin>
+		<div layout="column" class="kiosks-detail-control-bar-col">
+			<p class="glyphicon glyphicon-one-fine-dot"
+               ng-class="{'online-status': vm.kioskInfo.status == 1, 'offline-status': vm.kioskInfo.status == 0}"></p>
+			<p ng-if="vm.kioskInfo.status == 1">Online</p>
+            <p ng-if="vm.kioskInfo.status == 0">Offline</p>
+		</div>
+		<div layout="column" class="kiosks-detail-control-bar-col">
+			<h2>{{vm.kioskInfo.name}}</h2>
+			<p>
+				<md-icon md-font-icon="fa fa-map-marker"></md-icon>{{vm.kioskInfo.address}}</p>
+			<p>IP: {{vm.kioskInfo.ip}}</p>
+		</div>
+		<div layout="row" layout-margin class="kiosks-detail-control-bar kiosks-detail-control-bar-col">
+			<md-button class="md-raised md-default md-primary" aria-label="flat button" ng-click="vm.onRestartMachine()" ng-disabled="vm.kioskInfo.status == 0"><md-icon md-font-icon="zmdi zmdi-refresh" class="kiosks-detail-control-bar-icon"></md-icon>RESTART</md-button>
+            <md-button class="md-raised md-default md-primary" aria-label="flat button" ng-click="vm.onShutDownMachine()" ng-disabled="vm.kioskInfo.status == 0"><md-icon md-font-icon="zmdi zmdi-power" class="kiosks-detail-control-bar-icon"></md-icon>SHUTDOWN</md-button>
+		</div>
+	</div>
+</tri-widget>

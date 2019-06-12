@@ -1,0 +1,20 @@
+﻿<div class="pagination-toolbar" ng-show="options.totalItems>0">
+    <div class="page-size-select">
+        <span>Item per page:</span>
+        <select ng-model="options.pageSize" ng-options="option for option in options.pageSizeRange" ng-selected="options.pageSize===option" ng-change="options.pageSizeCallBack(options.pageSize)"></select>
+    </div>
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            <li class="page-item">
+                <span class="page-link" aria-label="First" ng-click="options.callBack(1)" ng-if="options.activePage !== 1">&laquo;</span>
+            </li>
+            <li class="page-item" ng-repeat="i in options.pages"><span class="page-link" ng-class="{'pagination-active' : options.activePage == i,'pagination-inactive' : options.activePage != i }" ng-click="options.callBack(i)">{{i}}</span></li>
+            <li class="page-item">
+                <span class="page-link" aria-label="Last" ng-click="options.callBack(options.totalPage)" ng-if="options.activePage !== options.totalPage">&raquo;</span>
+            </li>
+        </ul>
+    </nav>
+    <div class="pagination-info">
+        <span>Item {{options.startIndex}} to {{options.endIndex}} of {{options.totalItems}}</span>
+    </div>
+</div>

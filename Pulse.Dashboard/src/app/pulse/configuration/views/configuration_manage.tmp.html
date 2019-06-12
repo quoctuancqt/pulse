@@ -1,0 +1,24 @@
+<div class="dashboard-container overlay-10 padded-content-page">
+    <div flex layout="column">
+        <div flex layout="row" layout-xs="column" style="flex-wrap:wrap;">
+            <a ng-click="vm.go('countries')" palette-background="green:500" class="configuration-block-tile" ng-if="vm.securities.countries">
+                <div><i class="fa fa-globe" aria-hidden="true"></i><span>Countries</span></div>
+            </a>
+            <a ng-click="vm.go('kiosks')" palette-background="red:500" class="configuration-block-tile" ng-if="vm.securities.kiosks">
+                <div><i class="zmdi zmdi-desktop-windows" aria-hidden="true"></i><span>Kiosks</span></div>
+            </a>
+            <a ng-click="vm.go('groups')" palette-background="blue:500" class="configuration-block-tile" ng-if="vm.securities.groups">
+                <div><i class="fa fa-group" aria-hidden="true"></i><span>Groups</span></div>
+            </a>
+            <a ng-click="vm.go('licenses')" palette-background="cyan:500" class="configuration-block-tile" ng-if="vm.securities.licenses">
+                <div><i class="fa fa-barcode" aria-hidden="true"></i><span>Licenses</span></div>
+            </a>
+            <a ng-click="vm.go('users')" palette-background="deep-orange:500" class="configuration-block-tile" ng-if="vm.securities.users">
+                <div><i class="fa fa-user" aria-hidden="true"></i><span>Users</span></div>
+            </a>
+            <a ng-click="vm.go('client')" palette-background="lime:500" class="configuration-block-tile" ng-if="vm.securities.clients">
+                <div><i class="fa fa-child" aria-hidden="true"></i><span>Clients</span></div>
+            </a>
+        </div>
+    </div>
+</div>

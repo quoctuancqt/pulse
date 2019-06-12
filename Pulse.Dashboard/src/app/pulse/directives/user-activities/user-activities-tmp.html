@@ -1,0 +1,18 @@
+<div class="box box-primary box-list">
+	<div class="box-header with-border">
+		<h3 class="box-title pulse-toggle-box-title">USER ACTIVITIES<span class="title-date">{{currentDate | date : 'yyyy-MM-dd'}}</span></h3>
+		<div class="box-tools pull-right">
+			<button type="button" class="btn btn-box-tool" data-toggle="collapse" data-target="#user_activities"><i class="fa fa-minus"></i>
+                </button>
+			<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+		</div>
+	</div>
+	<div id="user_activities" class="list-style-01 user-activities collapse in">
+		<ul>
+            <li ng-repeat='item in array'>
+                <span class="time-log">{{item.timeLog}}</span>
+                <span class="content-log">{{item.contentLog}}</span>
+            </li>
+        </ul>
+	</div>
+</div>

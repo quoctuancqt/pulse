@@ -1,0 +1,65 @@
+﻿<div class="dashboard-container overlay-10 padded-content-page" layout="column" id="pulse_container">
+    <md-progress-linear id="loading" class="margin-bottom-20" md-mode="indeterminate"></md-progress-linear>
+    <div layout="row" layout-margin>
+        <tri-widget style="padding:10px 10px">
+            <center><h1>CLIENT INFORMATION</h1></center>
+            <form name="input_form">
+                <div>
+                    <md-input-container class="md-block" ng-if="vm.mode == 'edit'">
+                        <input type="text" placeholder="Client ID" id="clientId" ng-model="vm.client.ClientId" name="clientId" ng-disabled="true" />
+                    </md-input-container>
+                    <md-input-container class="md-block" ng-if="vm.mode == 'edit'">
+                        <input type="text" placeholder="Secret" id="secret" ng-model="vm.client.Secret" name="secret" ng-disabled="true" />
+                    </md-input-container>
+                    <md-input-container class="md-block" ng-if="vm.mode == 'edit'">
+                        <input type="text" placeholder="Secret Key" id="secretKey" ng-model="vm.client.SecretKey" name="secretKey" ng-disabled="true" />
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <input type="email" placeholder="Email" ng-required="true" id="email" ng-model="vm.client.Email" name="email" />
+                        <div class="pulse-error-message" ng-messages="input_form.email.$error">
+                            <span ng-message="required">Please input email.</span>
+                        </div>
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <input type="text" placeholder="Client Name" ng-required="true" id="clientName" ng-model="vm.client.Name" name="clientName" />
+                        <div class="pulse-error-message" ng-messages="input_form.clientName.$error">
+                            <span ng-message="required">Please input client name.</span>
+                        </div>
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <input type="text" placeholder="Signalr Url" ng-required="true" id="signalrUrl" ng-model="vm.client.SignalrUrl" name="signalrUrl" />
+                        <div class="pulse-error-message" ng-messages="input_form.signalrUrl.$error">
+                            <span ng-message="required">Please input signalr URL.</span>
+                        </div>
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <input type="text" placeholder="Mongo Connection String (e.g.localhost:80)" ng-required="true" id="mongoConnectionString" ng-model="vm.client.MongoConnectionString" name="mongoConnectionString" />
+                        <div class="pulse-error-message" ng-messages="input_form.mongoConnectionString.$error">
+                            <span ng-message="required">Please input mongo connection string.</span>
+                        </div>
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <input type="number" placeholder="Refresh token lifetime" id="refreshTokenLifetime" ng-model="vm.client.RefreshTokenLifeTime" name="refreshTokenLifetime" step="1" min="7" ng-required="true" />
+                        <div class="pulse-error-message" ng-messages="input_form.refreshTokenLifetime.$error">
+                            <span ng-message="required">Please input refresh token lifetime.</span>
+                            <span ng-message="number">Refresh token lifetime require numeric.</span>
+                            <span ng-message="min">Please input value greater than 7.</span>
+                        </div>
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <input type="number" placeholder="Token lifetime" id="tokenLifetime" ng-model="vm.client.TokenLifeTime" name="tokenLifetime" step="1" min="20" ng-required="true" />
+                        <div class="pulse-error-message" ng-messages="input_form.tokenLifetime.$error">
+                            <span ng-message="required">Please input token lifetime.</span>
+                            <span ng-message="number">Token lifetime require numeric.</span>
+                            <span ng-message="min">Please input value greater than 20.</span>
+                        </div>
+                    </md-input-container>
+                </div>
+                <div style="margin-right:10px;margin-top:-20px; float:right;">
+                    <md-button class="md-raised md-primary margin-left-0 margin-right-0 margin-top-10 margin-bottom-10" ng-click="vm.submit();" translate="Submit" ng-disabled="input_form.$invalid">Submit</md-button>
+                    <md-button class="md-raised md-primary margin-left-0 margin-right-0 margin-top-10 margin-bottom-10" ng-click="vm.cancel();" translate="Cancel">Cancel</md-button>
+                </div>
+            </form>
+        </tri-widget>
+    </div>
+</div>

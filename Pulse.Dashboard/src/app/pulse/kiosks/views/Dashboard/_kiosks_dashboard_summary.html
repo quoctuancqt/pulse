@@ -1,0 +1,83 @@
+<tri-widget flex>
+    <div class="box box-primary">
+        <div class="box-header with-border">
+            <h3 class="box-title pulse-toggle-box-title">Search</h3>
+            <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-toggle="collapse" data-target="#search_box">
+                    <i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+            </div>
+        </div>
+        <div id="search_box" class="collapse in">
+            <div class="md-toolbar-tools" style="margin-top:30px;">
+                <md-input-container class="md-block">
+                    <label>Name</label>
+                    <input type="text" ng-model="vm.searchNameKey">
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <label>Address</label>
+                    <input type="text" ng-model="vm.searchAddressKey">
+                </md-input-container>
+                <!--<md-select-menu-container style="margin-top:-20px;margin-left:10px;">
+                    <md-select placeholder="Pick" ng-model="vm.searchGroup">
+                        <md-option ng-repeat="i in vm.groups" value="{{i.id}}">{{i.name}}</md-option>
+                    </md-select>
+                </md-select-menu-container>-->
+                <md-select-menu-container style="margin-top:-20px;margin-left:10px;">
+                    <md-select placeholder="Pick" ng-model="vm.searchCountry">
+                        <md-option ng-repeat="i in vm.countries" value="{{i.id}}">{{i.name}}</md-option>
+                    </md-select>
+                </md-select-menu-container>
+                <md-input-container class="md-block">
+                    <md-button class="md-raised md-default md-primary" style="margin-top:-30px;" aria-label="flat button" ng-click="vm.search(true)">Search</md-button>
+                </md-input-container>
+            </div>
+        </div>
+    </div>
+    <paging options="vm.paginationOptions" style="position:relative;"></paging>
+    <md-progress-linear id="loading" class="margin-bottom-20" md-mode="indeterminate"></md-progress-linear>
+	<md-table-container>
+		<table md-table class="md-data-table">
+			<thead md-head>
+				<tr md-row>
+					<th md-column>Name</th>
+					<th md-column>CPU</th>
+					<th md-column>Memory</th>
+					<th md-column>Disk</th>
+					<th md-column>Status</th>
+				</tr>
+			</thead>
+			<tbody md-body>
+				<tr md-row ng-repeat="kiosk in vm.kiosksData">
+					<td md-cell>
+                        <div><span class="pulse-kiosk-name">{{kiosk.Info.Name}} - </span><span class="pulse-lable-link" ng-click="vm.goToDetail(kiosk.MachineId)">Detail</span></div>
+                        <div><md-icon md-font-icon="fa fa-group" class="pulse-md-icon"></md-icon><span>{{kiosk.Info.GroupName}}</span></div>
+                        <div><md-icon md-font-icon="fa fa-globe" class="pulse-md-icon"></md-icon><span>{{kiosk.Info.CountryName}}</span></div>
+                        <div><md-icon md-font-icon="fa fa-map-marker" class="pulse-md-icon"></md-icon><span>{{kiosk.Info.Address}}</span></div>
+					</td>
+					<td md-cell>
+						<gauge-chart-widget setting="kiosk.Signal.dataCPU"></gauge-chart-widget>
+                    </td>
+					<td md-cell>
+						<gauge-chart-widget setting="kiosk.Signal.dataMemory"></gauge-chart-widget>
+					</td>
+					<td md-cell>
+						<div class="full-width" layout="row" layout-padding ng-repeat="drive in kiosk.Signal.details">
+							<h4 flex="20" class="opacity-80 margin-0 margin-right-10" translate>{{drive.label}}: </h4>
+							<div flex>
+								<md-progress-linear class="margin-bottom-10 margin-top-6" md-mode="determinate" value="{{drive.value}}" ng-class="drive.class_color"></md-progress-linear>
+							</div>
+						</div>
+					</td>
+					<td md-cell>
+						<span class="glyphicon glyphicon-one-fine-dot"
+                               ng-class="{'offline-status': kiosk.Info.Status == 0, 'online-status': kiosk.Info.Status == 1 }">
+                        </span>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</md-table-container>
+    <paging options="vm.paginationOptions" style="position:relative;"></paging>
+</tri-widget>

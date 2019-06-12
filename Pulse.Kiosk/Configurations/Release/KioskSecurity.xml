@@ -1,0 +1,13 @@
+﻿<Kiosks>
+  <Security>
+    <LicenseKey></LicenseKey>
+    <ClientId></ClientId>
+    <MachineId></MachineId>
+    <UserEncrypted></UserEncrypted>
+    <SaltKey></SaltKey>
+    <VIKey></VIKey>
+    <PasswordHash></PasswordHash>
+    <Token></Token>
+    <RefreshToken></RefreshToken>
+  </Security>
+</Kiosks>

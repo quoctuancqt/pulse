@@ -1,0 +1,20 @@
+<div class="dashboard-container overlay-10 padded-content-page" layout="column">
+	<div layout="row" layout-xs="column" layout-margin="" class="layout-margin layout-xs-column layout-row">
+		<div flex="70" layout="column" layout-margin>
+			<div layout="row" layout-margin ng-include="'app/pulse/pulse_server/views/_pulse_server_summary.html'"></div>
+			<div layout="row" layout-margin ng-include="'app/pulse/pulse_server/views/_pulse_server_graph.html'"></div>
+			<div layout="row" layout-margin>
+				<div layout="column" layout-margin flex="40" ng-include="'app/pulse/pulse_server/views/_pulse_server_info.html'"></div>
+				<div layout="column" layout-margin flex>
+					<div layout="row" layout-margin ng-include="'app/pulse/pulse_server/views/_pulse_server_user_stats.html'"></div>
+					<div layout="row" layout-margin ng-include="'app/pulse/pulse_server/views/_pulse_server_event_log.html'"></div>
+				</div>
+			</div>
+		</div>
+		<div flex layout="column" layout-margin>
+            <div layout="column" layout-margin ng-include="'app/pulse/pulse_server/views/_pulse_server_user_activities.html'"></div>
+            <div layout="column" layout-margin ng-include="'app/pulse/pulse_server/views/_pulse_server_system_event.html'"></div>
+		</div>
+        <message-box my-handler="vm.modelSetting.handler" modal-header-logo="vm.modelSetting.headerLogo" modal-is-confirm="vm.modelSetting.isConfirm" modal-body="vm.modelSetting.body" modal-footer="vm.modelSetting.footer" modal-header="vm.modelSetting.header" message-type="vm.modelSetting.messageType" message-icon="vm.modelSetting.icon"></message-box>
+	</div>
+</div>

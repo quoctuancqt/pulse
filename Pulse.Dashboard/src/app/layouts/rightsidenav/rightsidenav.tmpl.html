@@ -1,0 +1,23 @@
+<md-content flex layout class="admin-notifications">
+    <md-tabs flex md-stretch-tabs="always" md-selected="vm.currentTab">
+        <md-tab>
+            <md-tab-label>
+                <md-icon md-font-icon="fa fa-bell-o"></md-icon>
+            </md-tab-label>
+            <md-tab-body>
+                <md-content>
+                    <md-list>
+                        <div ng-repeat="group in vm.notificationGroups">
+                            <md-subheader class="md-primary" ng-if="group.notifications.length > 0">{{group.name}}</md-subheader>
+                            <md-list-item ng-repeat="notification in group.notifications" layout="row" layout-align="space-between center">
+                                <md-icon md-font-icon="{{notification.icon}}" ng-style="{ color: notification.iconColor }"></md-icon>
+                                <span ng-click="vm.go(group.name, notification.machineId, notification.status)">{{notification.content}}</span>
+                                <span class="md-caption">{{notification.countDate}}</span>
+                            </md-list-item>
+                        </div>
+                    </md-list>
+                </md-content>
+            </md-tab-body>
+        </md-tab>
+    </md-tabs>
+</md-content>

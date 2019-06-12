@@ -1,0 +1,62 @@
+﻿<div class="dashboard-container overlay-10  pulse-dashboard-style" layout="column">
+    <md-progress-linear id="loading" class="margin-bottom-20" md-mode="indeterminate"></md-progress-linear>
+    <div flex layout="column">
+        <div flex layout="row" layout-xs="column">
+            <div flex="25"></div>
+            <md-card flex="50">
+                <md-card-container layout-margin>
+                    <div class="text-center">
+                        <h2>USER PROFILE</h2>
+                        <hr />
+                    </div>
+                    <div class="text-center">
+                        <img src="{{vm.userInfo.AvatarPath}}" class="pulse-avatar" />
+                        <hr />
+                    </div>
+                    <form name="userprofile">
+                        <md-input-container class="md-block">
+                            <label>First Name</label>
+                            <input type="text" ng-model="vm.userInfo.FirstName" name="firstname" ng-required="true">
+                            <div md-auto-hide="false" ng-show="!userprofile.firstname.$valid && userprofile.firstname.$touched" class="pulse-error-message">
+                                <span translate>Please enter first name.</span>
+                            </div>
+                        </md-input-container>
+                        <md-input-container class="md-block">
+                            <label>Last Name</label>
+                            <input type="text" ng-model="vm.userInfo.LastName" name="lastname" ng-required="true">
+                            <div md-auto-hide="false" ng-show="!userprofile.lastname.$valid && userprofile.lastname.$touched" class="pulse-error-message">
+                                <span translate>Please enter last name.</span>
+                            </div>
+                        </md-input-container>
+                        <md-select-container>
+                            <label class="pulse-label">Gender</label>
+                            <md-select placeholder="Gender" ng-model="vm.userInfo.Gender">
+                                <md-option value="0">Male</md-option>
+                                <md-option value="1">Female</md-option>
+                            </md-select>
+                        </md-select-container>
+                        <md-input-container class="md-block">
+                            <label>Email</label>
+                            <input type="email" ng-model="vm.userInfo.Email" ng-required="true" name="email">
+                            <div md-auto-hide="false" ng-show="!userprofile.email.$valid && userprofile.email.$touched" class="pulse-error-message">
+                                <span translate>Please enter email.</span>
+                            </div>
+                        </md-input-container>
+                        <md-input-container class="md-block">
+                            <label>Birthday</label>
+                            <md-datepicker ng-model="vm.userInfo.Birthday" md-placeholder="Enter date"></md-datepicker>
+                        </md-input-container>
+                        <md-input-container class="md-block">
+                            <label>Address</label>
+                            <input type="text" ng-model="vm.userInfo.Address" ng-autocomplete>
+                        </md-input-container>
+                        <md-input-container class="md-block text-right ">
+                            <md-button class="md-raised md-primary margin-left-0 margin-right-0 margin-top-10 margin-bottom-10" ng-click="vm.save()" translate="Save" ng-disabled="userprofile.$invalid">Save</md-button>
+                        </md-input-container>
+                    </form>
+                </md-card-container>
+            </md-card>
+            <div flex="25"></div>
+        </div>
+    </div>
+</div>

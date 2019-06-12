@@ -1,0 +1,427 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FCDF2A6E-0C81-49F9-BB3A-60CF22EE629C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Pulse.Core</RootNamespace>
+    <AssemblyName>Pulse.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Vungo|AnyCPU'">
+    <OutputPath>bin\Vungo\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Tuancao|AnyCPU'">
+    <OutputPath>bin\Tuancao\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=5.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.5.1.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CrossPlatformLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrossPlatformLibrary.1.0.73\lib\net45\CrossPlatformLibrary.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CrossPlatformLibrary.Platform, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrossPlatformLibrary.1.0.73\lib\net45\CrossPlatformLibrary.Platform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FluentValidation, Version=6.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentValidation.6.2.1.0\lib\Net45\FluentValidation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FluentValidation.Mvc, Version=6.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentValidation.MVC5.6.2.1.0\lib\Net45\FluentValidation.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Guards, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ac6aedb73a72f46e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Guards.1.0.10\lib\portable-net45+dnxcore50+wp80+wpa81+win81+netcore45+monoandroid10+monotouch10+xamarin.ios10\Guards.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Client, Version=2.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Client.2.2.1\lib\net45\Microsoft.AspNet.SignalR.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.2.1\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb, Version=2.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.2.1\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Cors, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Cors.3.0.1\lib\net45\Microsoft.Owin.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Diagnostics, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Diagnostics.3.0.1\lib\net45\Microsoft.Owin.Diagnostics.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.HttpListener, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.HttpListener.3.0.1\lib\net45\Microsoft.Owin.Host.HttpListener.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Hosting, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Hosting.3.0.1\lib\net45\Microsoft.Owin.Hosting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MongoDB.Bson, Version=2.4.0.70, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Bson.2.4.0\lib\net45\MongoDB.Bson.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MongoDB.Driver, Version=2.4.0.70, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Driver.2.4.0\lib\net45\MongoDB.Driver.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MongoDB.Driver.Core, Version=2.4.0.70, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Driver.Core.2.4.0\lib\net45\MongoDB.Driver.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Web.Common, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.Web.Common.3.2.0.0\lib\net45-full\Ninject.Web.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PlatformAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6631b0d7444ed877, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrossPlatformAdapter.1.0.12\lib\portable-net45+wp8+wpa81+win81+netcore45+monoandroid1+xamarin.ios10\PlatformAdapter.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="RazorEngine, Version=3.8.2.0, Culture=neutral, PublicKeyToken=9ee697374c7e744a, processorArchitecture=MSIL">
+      <HintPath>..\packages\RazorEngine.3.8.2\lib\net45\RazorEngine.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.0.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.3\lib\net45\System.Web.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.1.0\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.3\lib\net45\System.Web.Http.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.Owin, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Owin.5.2.3\lib\net45\System.Web.Http.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.1.0\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.1.0\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.1.0\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.1.0\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.1.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Connection\Entity\PulseContext.cs" />
+    <Compile Include="Connection\WMI\WMIConnection.cs" />
+    <Compile Include="Dto\Entity\ClientDto\ClientDtoValidator.cs" />
+    <Compile Include="Dto\Entity\ClientDto\ClientDto.cs" />
+    <Compile Include="Dto\Entity\ClientsCountriesDto\ClientsCountriesDto.cs" />
+    <Compile Include="Dto\Entity\CountryDto\CountryDto.cs" />
+    <Compile Include="Dto\Entity\CountryDto\CountryDtoValidator.cs" />
+    <Compile Include="Dto\Entity\EncryptionUserDto\EncryptionUserDto.cs" />
+    <Compile Include="Dto\Entity\GroupDto\GroupDto.cs" />
+    <Compile Include="Dto\Entity\GroupDto\GroupDtoValidator.cs" />
+    <Compile Include="Dto\Entity\HistoryDto\HistoryDto.cs" />
+    <Compile Include="Dto\Entity\CommonDto\IDto.cs" />
+    <Compile Include="Dto\Entity\KioskDto\KioskDtoValidator.cs" />
+    <Compile Include="Dto\Entity\KioskDto\KioskDto.cs" />
+    <Compile Include="Dto\Entity\KioskSecurityDto\KioskSecurityDto.cs" />
+    <Compile Include="Dto\Entity\CommonDto\PageResultDto.cs" />
+    <Compile Include="Dto\Entity\RefreshTokenDto\RefreshTokenDto.cs" />
+    <Compile Include="Dto\Entity\UserProfileDto\UserProfileDto.cs" />
+    <Compile Include="Dto\Entity\UserProfileDto\UserProperties.cs" />
+    <Compile Include="Dto\Mongo\ClientUserDto.cs" />
+    <Compile Include="Dto\Mongo\MongoKioskDto.cs" />
+    <Compile Include="Dto\Mongo\NotifyKioskDto.cs" />
+    <Compile Include="Dto\Mongo\SystemEventDto.cs" />
+    <Compile Include="Dto\Mongo\UserActivitiesDto.cs" />
+    <Compile Include="Dto\SignalR\UserDataDto.cs" />
+    <Compile Include="EmailTemplate\IProcessEmailTemplate.cs" />
+    <Compile Include="EmailTemplate\Model\LoginModel.cs" />
+    <Compile Include="EmailTemplate\SimpleEmailTemplate.cs" />
+    <Compile Include="Enum\HubStatus.cs" />
+    <Compile Include="HandlerEvent\Args\HistoryArgs.cs" />
+    <Compile Include="HandlerEvent\Args\KioskArgs.cs" />
+    <Compile Include="HandlerEvent\Args\MongoKioskArgs.cs" />
+    <Compile Include="HandlerEvent\Args\NotifyKioskArgs.cs" />
+    <Compile Include="HandlerEvent\Args\SystemEventArgs.cs" />
+    <Compile Include="HandlerEvent\Args\UserActivitiesArgs.cs" />
+    <Compile Include="HandlerEvent\Delegates\HandleDelegate.cs" />
+    <Compile Include="HandlerEvent\Events\EventsBase.cs" />
+    <Compile Include="HandlerEvent\Events\EventType.cs" />
+    <Compile Include="HandlerEvent\Events\SignalREventHandlers.cs" />
+    <Compile Include="HandlerEvent\Events\WebApiEventHandlers.cs" />
+    <Compile Include="HandlerEvent\Events\IEvents.cs" />
+    <Compile Include="IoC\SignalR\NinjectConfiguration.cs" />
+    <Compile Include="Connection\Entity\Configuration.cs" />
+    <Compile Include="IoC\WebApi\NinjectConfiguration.cs" />
+    <Compile Include="Mapper\Common\CommonMapper.cs" />
+    <Compile Include="Mapper\SignalR\AutoMapperConfiguration.cs" />
+    <Compile Include="Mapper\WebApi\AutoMapperConfiguration.cs" />
+    <Compile Include="Mapper\WebApi\MongoMaperProfile.cs" />
+    <Compile Include="Mapper\WebApi\WebApiMapperProfile.cs" />
+    <Compile Include="Migrations\201701180809526_init_db.cs" />
+    <Compile Include="Migrations\201701180809526_init_db.Designer.cs">
+      <DependentUpon>201701180809526_init_db.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OwinServer\SignalRServer\Providers\ObjectState.cs" />
+    <Compile Include="OwinServer\SignalRServer\Providers\SignalRClientProvider.cs" />
+    <Compile Include="OwinServer\SignalRServer\Providers\SignalRServerProvider.cs" />
+    <Compile Include="OwinServer\SignalRServer\Configuration\SignalRConfiguration.cs" />
+    <Compile Include="OwinServer\WebApiServer\Configuration\NinjectResolver.cs" />
+    <Compile Include="OwinServer\WebApiServer\Configuration\NinjectScope.cs" />
+    <Compile Include="OwinServer\WebApiServer\Configuration\WebApiConfiguration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Security\Identity\EmailService.cs" />
+    <Compile Include="Security\Identity\SmsService.cs" />
+    <Compile Include="Security\OAuthProvider\PulseAccessTokenProvider.cs" />
+    <Compile Include="Services\MongoService\BaseMongoService.cs" />
+    <Compile Include="Services\MongoService\IBaseMongoService.cs" />
+    <Compile Include="Services\MongoService\IMongoKioskService.cs" />
+    <Compile Include="Services\MongoService\IMongoService.cs" />
+    <Compile Include="Services\MongoService\MongoKioskService.cs" />
+    <Compile Include="Services\MongoService\MongoService.cs" />
+    <Compile Include="Services\ProxyService\BaseProxy.cs" />
+    <Compile Include="Services\ProxyService\IProxyService.cs" />
+    <Compile Include="Services\ProxyService\ProxyService.cs" />
+    <Compile Include="Repository\Entity\GenericRepository.cs" />
+    <Compile Include="Repository\Entity\IRepository.cs" />
+    <Compile Include="Repository\Entity\Repository.cs" />
+    <Compile Include="Repository\SignalR\UserData\IUserDataRepository.cs" />
+    <Compile Include="Repository\SignalR\UserData\UserDataRepository.cs" />
+    <Compile Include="Repository\SignalR\WMI\WMIRepository.cs" />
+    <Compile Include="Security\Identity\IdentityModels\PulseIdentityUser.cs" />
+    <Compile Include="Security\Identity\IdentityModels\PulseIdentityRole.cs" />
+    <Compile Include="Security\Identity\PulseRoleManager.cs" />
+    <Compile Include="Security\Identity\PulseRoleStore.cs" />
+    <Compile Include="Security\Identity\PulseUserManager.cs" />
+    <Compile Include="Security\Identity\PulseUserStore.cs" />
+    <Compile Include="Security\OAuthProvider\PulseOAuthProvider.cs" />
+    <Compile Include="Security\OAuthProvider\PulseRefreshTokenProvider.cs" />
+    <Compile Include="Services\CommonService\BaseService\IServiceBase.cs" />
+    <Compile Include="Services\CommonService\RefreshTokenService\IRefreshTokenService.cs" />
+    <Compile Include="Services\CommonService\RefreshTokenService\RefreshTokenService.cs" />
+    <Compile Include="Services\CommonService\UnitOfWork\IUnitOfWork.cs" />
+    <Compile Include="Services\CommonService\BaseService\ServiceBase.cs" />
+    <Compile Include="Services\CommonService\UnitOfWork\UnitOfWork.cs" />
+    <Compile Include="Services\ProxyService\RetryHandler.cs" />
+    <Compile Include="Services\ProxyService\SignalRServerProxy.cs" />
+    <Compile Include="Services\SignalRService\ApiService\KioskApiService.cs" />
+    <Compile Include="Services\SignalRService\ApiService\BaseApiService.cs" />
+    <Compile Include="Services\SignalRService\ApiService\IApiService.cs" />
+    <Compile Include="Services\SignalRService\ApiService\SignalRServerApiService.cs" />
+    <Compile Include="Services\SignalRService\DeviceService\CollectService\CollectDeviceService.cs" />
+    <Compile Include="Services\SignalRService\DeviceService\CrtlService\DeviceCtrlService.cs" />
+    <Compile Include="Services\SignalRService\DeviceService\CollectService\ICollectDeviceService.cs" />
+    <Compile Include="Services\SignalRService\DeviceService\CrtlService\IDeviceCtrlService.cs" />
+    <Compile Include="Services\SignalRService\WMIService\BaseService.cs" />
+    <Compile Include="Services\SignalRService\WMIService\DriveService.cs" />
+    <Compile Include="Services\SignalRService\WMIService\EventLogService.cs" />
+    <Compile Include="Services\SignalRService\WMIService\IWMIService.cs" />
+    <Compile Include="Services\SignalRService\WMIService\NetWorkService.cs" />
+    <Compile Include="Services\SignalRService\WMIService\TemperatureService.cs" />
+    <Compile Include="Services\SignalRService\WMIService\PhysicalDiskService.cs" />
+    <Compile Include="Services\SignalRService\WMIService\MemoryService.cs" />
+    <Compile Include="Services\SignalRService\WMIService\ProcessorService.cs" />
+    <Compile Include="Services\WebApiService\ClientsCountriesService\ClientsCountriesService.cs" />
+    <Compile Include="Services\WebApiService\ClientsCountriesService\IClientsCountriesService.cs" />
+    <Compile Include="Services\WebApiService\ClientService\ClientService.cs" />
+    <Compile Include="Services\WebApiService\ClientService\IClientService.cs" />
+    <Compile Include="Services\WebApiService\CountryService\CountryService.cs" />
+    <Compile Include="Services\WebApiService\CountryService\ICountryService.cs" />
+    <Compile Include="Services\WebApiService\NotifyService\INotifyService.cs" />
+    <Compile Include="Services\WebApiService\NotifyService\NotifyService.cs" />
+    <Compile Include="Services\WebApiService\UserService\EncryptionUserService.cs" />
+    <Compile Include="Services\WebApiService\UserService\IEncryptionUserService.cs" />
+    <Compile Include="Services\WebApiService\GroupService\GroupService.cs" />
+    <Compile Include="Services\WebApiService\GroupService\IGroupService.cs" />
+    <Compile Include="Services\WebApiService\HistoryService\HistoryService.cs" />
+    <Compile Include="Services\WebApiService\HistoryService\IHistoryService.cs" />
+    <Compile Include="Services\WebApiService\KioskService\IKioskSecurityService.cs" />
+    <Compile Include="Services\WebApiService\KioskService\IKioskService.cs" />
+    <Compile Include="Services\WebApiService\KioskService\KioskSecurityService.cs" />
+    <Compile Include="Services\WebApiService\KioskService\KioskService.cs" />
+    <Compile Include="Services\WebApiService\UserService\IUserProfileService.cs" />
+    <Compile Include="Services\WebApiService\UserService\UserProfileService.cs" />
+    <Compile Include="Settings\SettingsConfiguration.cs" />
+    <Compile Include="SignalR\Client\PulseSignalRClient.ClientMethod.cs" />
+    <Compile Include="SignalR\Client\PulseSignalRClient.ServerMethod.cs" />
+    <Compile Include="SignalR\Client\PulseSignalRClient.Setting.cs" />
+    <Compile Include="SignalR\Pipeline\PulseHubPipelineModule.cs" />
+    <Compile Include="SignalR\Server\Process.cs" />
+    <Compile Include="SignalR\Server\PulseSignalRServer.ClientMethod.cs" />
+    <Compile Include="SignalR\Server\PulseSignalRServer.ServerMethod.cs" />
+    <Compile Include="SignalR\Server\PulseSignalRServer.Setting.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="EmailTemplate\Template.cshtml" />
+    <None Include="Log4Net\log4net.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Pulse.Common\Pulse.Common.csproj">
+      <Project>{8a62461d-d33f-4a1d-b4d8-2f7c3dc24d2f}</Project>
+      <Name>Pulse.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Pulse.Domain\Pulse.Domain.csproj">
+      <Project>{513c028e-8cfa-4c25-9204-1552ac93bc17}</Project>
+      <Name>Pulse.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Pulse.Mongo\Pulse.Mongo.csproj">
+      <Project>{33394358-1fe1-41a7-a21d-3da5425197cb}</Project>
+      <Name>Pulse.Mongo</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201701180809526_init_db.resx">
+      <DependentUpon>201701180809526_init_db.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>xcopy "$(SolutionDir)Pulse.Core\EmailTemplate\*.cshtml" "$(SolutionDir)Pulse.WebApi\EmailTemplate" /s /i /y
+xcopy "$(SolutionDir)Pulse.Core\Log4Net\*.config" "$(SolutionDir)Pulse.Kiosk\Log4Net" /s /i /y
+xcopy "$(SolutionDir)Pulse.Core\Log4Net\*.config" "$(SolutionDir)Pulse.OwinServer\Log4Net" /s /i /y
+xcopy "$(SolutionDir)Pulse.Core\Log4Net\*.config" "$(SolutionDir)Pulse.WebApi\Log4Net" /s /i /y</PreBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

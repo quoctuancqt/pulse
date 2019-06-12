@@ -1,0 +1,33 @@
+﻿<div class="dashboard-container overlay-10 padded-content-page pulse-dashboard-style" layout="column">
+    <md-progress-linear id="loading" class="margin-bottom-20" md-mode="indeterminate"></md-progress-linear>
+    <div class="box box-primary">
+        <div class="box-header with-border">
+            <h3 class="box-title pulse-toggle-box-title">Search</h3>
+            <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-toggle="collapse" data-target="#search_box">
+                    <i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+            </div>
+        </div>
+        <div id="search_box" class="collapse in">
+            <div class="md-toolbar-tools" style="margin-top:30px;">
+                <md-input-container class="md-block">
+                    <label>Group Name</label>
+                    <input type="text" ng-model="vm.searchGroupName">
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <md-button class="md-raised md-default md-primary" style="margin-top:-30px;" aria-label="flat button" ng-click="vm.search(true)">Search</md-button>
+                </md-input-container>
+            </div>
+        </div>
+    </div>
+    <div class="configuration-block-header">
+        GROUPS MANAGEMENT
+        <md-button class="md-raised md-default md-primary" style="float:right;" aria-label="flat button" ng-click="vm.addRow()">Add</md-button>
+    </div>
+    <div id="grid" ui-grid="vm.gridOptions" class="grid" ng-style="vm.getTableHeight();" ui-grid-auto-resize ui-grid-edit ui-grid-row-edit></div>
+    <paging options="vm.paginationOptions" style="position:relative;"></paging>
+    <message-box my-handler="vm.modelSetting.handler" modal-header-logo="vm.modelSetting.headerLogo" modal-is-confirm="vm.modelSetting.isConfirm" modal-body="vm.modelSetting.body" modal-header="vm.modelSetting.header" message-type="vm.modelSetting.messageType" message-icon="vm.modelSetting.icon" data-ng-click-right-button="vm.modelSetting.myRightButton()"></message-box>
+    <input-form my-handler="vm.formSetting.handler" modal-header-logo="vm.formSetting.headerLogo" modal-type="vm.formSetting.popupType" options="vm.groupSchema" modal-header="vm.formSetting.header" data-ng-click-submit-button="vm.formSetting.submitButton()" data-ng-click-cancel-button="vm.formSetting.cancelButton()"></input-form>
+</div>

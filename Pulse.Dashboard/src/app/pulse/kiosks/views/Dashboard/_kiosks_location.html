@@ -1,0 +1,16 @@
+<div class="box box-primary">
+	<div class="box-header with-border">
+		<h3 class="box-title pulse-toggle-box-title">KIOSKS LOCATION</h3>
+
+		<div class="box-tools pull-right">
+			<button type="button" class="btn btn-box-tool" data-toggle="collapse" data-target="#kiosks_location"><i class="fa fa-minus"></i>
+                </button>
+			<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+		</div>
+	</div>
+	<div style="height:400px;" id="kiosks_location" class="collapse in">
+		<tri-widget google-geochart-widget flex content-padding>
+            <geo-chart-widget setting="vm.kiosksData"></geo-chart-widget>
+        </tri-widget>
+	</div>
+</div>

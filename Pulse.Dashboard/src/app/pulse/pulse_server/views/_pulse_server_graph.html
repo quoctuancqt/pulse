@@ -1,0 +1,11 @@
+<tri-widget>
+    <md-tabs layout-fill flex md-dynamic-height md-no-disconnect md-stretch-tabs="always" md-no-pagination>
+        <md-tab label="{{'Real Time' | triTranslate}}">
+            <md-content class="md-padding">
+                <h1 class="md-headline"><span translate>Bandwidth</span> <span class="md-caption">(Kbps)</span></h1>
+                <performance-graph-widget setting="vm.pulseViewModel.bandwidth"></performance-graph-widget>
+                <h1 class="md-headline"><span translate>CPU</span> <span class="md-caption">(%)</span></h1>
+                <performance-graph-widget setting="vm.pulseViewModel.cpu"></performance-graph-widget>
+            </md-content>
+        </md-tab>
+</tri-widget>

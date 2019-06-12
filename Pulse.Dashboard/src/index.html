@@ -1,0 +1,276 @@
+﻿<!doctype html>
+<html class="no-js" ng-app="app">
+
+<head>
+    <meta charset="utf-8">
+    <title>PULSE - TEKCENT</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=RobotoDraft:100,100italic,300,300italic,400,500,700,900,400italic">
+    <!-- Place favicon.png in the root directory -->
+    <link rel="icon" type="image/ico" href="fav.ico" />
+
+    <!-- build:css({.tmp/serve,src}) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="libs/angular-chart.js/dist/angular-chart.css" />
+    <link rel="stylesheet" href="libs/angular-dragula/dist/dragula.min.css" />
+    <link rel="stylesheet" href="libs/angular-material-data-table/dist/md-data-table.css" />
+    <link rel="stylesheet" href="libs/fullcalendar/dist/fullcalendar.css" />
+    <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="libs/material-design-iconic-font/dist/css/material-design-iconic-font.min.css" />
+    <link rel="stylesheet" href="libs/textAngular/dist/textAngular.css" />
+    <link rel="stylesheet" href="libs/weather-icons/css/weather-icons.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <link rel="stylesheet" href="libs/pulse.css" />
+    <!-- build:css({.tmp/serve,src}) styles/app.css -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="app/app.css">
+    <!-- endinject -->
+    <link rel="stylesheet" href="libs/highlightjs/styles/xcode.css">
+    <!-- endbuild -->
+</head>
+
+<body translate-cloak ng-class="bodyClasses">
+
+    <!--[if lt IE 10]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <div layout="row" class="full-height" ui-view="root"></div>
+
+    <!-- build:js(src) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="libs/jquery/dist/jquery.js"></script>
+    <script src="libs/highlightjs/highlight.pack.js"></script>
+    <script src="libs/angular/angular.js"></script>
+    <script src="libs/angular-animate/angular-animate.js"></script>
+    <script src="libs/Chart.js/Chart.js"></script>
+    <script src="libs/angular-chart.js/dist/angular-chart.js"></script>
+    <script src="libs/angular-cookies/angular-cookies.js"></script>
+    <script src="libs/angular-digest-hud/digest-hud.js"></script>
+    <script src="libs/angular-dragula/dist/angular-dragula.js"></script>
+    <script src="libs/angular-google-chart/ng-google-chart.js"></script>
+    <script src="libs/angular-simple-logger/dist/angular-simple-logger.js"></script>
+    <script src="libs/lodash/lodash.js"></script>
+    <script src="libs/angular-google-maps/dist/angular-google-maps.js"></script>
+    <script src="libs/angular-highlightjs/build/angular-highlightjs.js"></script>
+    <script src="libs/angular-linkify/angular-linkify.js"></script>
+    <script src="libs/angular-local-storage/dist/angular-local-storage.js"></script>
+    <script src="libs/angular-aria/angular-aria.js"></script>
+    <script src="libs/angular-messages/angular-messages.js"></script>
+    <script src="libs/angular-material/angular-material.js"></script>
+    <script src="libs/angular-material-data-table/dist/md-data-table.js"></script>
+    <script src="libs/moment/moment.js"></script>
+    <script src="libs/angular-moment/angular-moment.js"></script>
+    <script src="libs/angular-resource/angular-resource.js"></script>
+    <script src="libs/angular-sanitize/angular-sanitize.js"></script>
+    <script src="libs/angular-translate/angular-translate.js"></script>
+    <script src="libs/angular-translate-loader-partial/angular-translate-loader-partial.js"></script>
+    <script src="libs/angular-translate-storage-cookie/angular-translate-storage-cookie.js"></script>
+    <script src="libs/angular-translate-storage-local/angular-translate-storage-local.js"></script>
+    <script src="libs/fullcalendar/dist/fullcalendar.js"></script>
+    <script src="libs/angular-ui-calendar/src/calendar.js"></script>
+    <script src="libs/countUp.js/dist/countUp.min.js"></script>
+    <script src="libs/rangy/rangy-core.js"></script>
+    <script src="libs/rangy/rangy-classapplier.js"></script>
+    <script src="libs/rangy/rangy-highlighter.js"></script>
+    <script src="libs/rangy/rangy-selectionsaverestore.js"></script>
+    <script src="libs/rangy/rangy-serializer.js"></script>
+    <script src="libs/rangy/rangy-textrange.js"></script>
+    <script src="libs/textAngular/dist/textAngular.js"></script>
+    <script src="libs/textAngular/dist/textAngular-sanitize.js"></script>
+    <script src="libs/textAngular/dist/textAngularSetup.js"></script>
+    <script src="libs/ng-file-upload/ng-file-upload-shim.js"></script>
+    <script src="libs/ng-file-upload/ng-file-upload.js"></script>
+    <script src="libs/angular-ui-router/release/angular-ui-router.js"></script>
+    <!-- endbower -->
+    <!-- enqueue all translations for calendar (remove if you dont need multilanguage) -->
+    <script src="libs/fullcalendar/dist/lang-all.js"></script>
+    <!-- endbuild -->
+    <!-- build:js({.tmp/serve,.tmp/partials,src}) scripts/app.js -->
+    <!-- inject:js -->
+    <script src="app/triangular/layouts/layouts.module.js"></script>
+    <script src="app/triangular/layouts/states/triangular/triangular.controller.js"></script>
+    <script src="app/triangular/layouts/default/default-layout.controller.js"></script>
+    <script src="app/triangular/layouts/default/default-content.directive.js"></script>
+    <script src="app/triangular/components/components.module.js"></script>
+    <script src="app/triangular/components/wizard/wizard.directive.js"></script>
+    <script src="app/triangular/components/wizard/wizard-form.directive.js"></script>
+    <script src="app/triangular/components/widget/widget.directive.js"></script>
+    <script src="app/triangular/components/toolbars/toolbar.controller.js"></script>
+    <script src="app/triangular/components/table/table.directive.js"></script>
+    <script src="app/triangular/components/table/table-start-from.filter.js"></script>
+    <script src="app/triangular/components/table/table-cell-image.filter.js"></script>
+    <script src="app/triangular/components/notifications-panel/notifications-panel.controller.js"></script>
+    <script src="app/triangular/components/menu/menu.provider.js"></script>
+    <script src="app/triangular/components/menu/menu.directive.js"></script>
+    <script src="app/triangular/components/menu/menu-item.directive.js"></script>
+    <script src="app/triangular/components/loader/loader.directive.js"></script>
+    <script src="app/triangular/components/loader/loader-service.js"></script>
+    <script src="app/triangular/components/footer/footer.controller.js"></script>
+    <script src="app/triangular/components/breadcrumbs/breadcrumbs.service.js"></script>
+    <script src="app/triangular/themes/themes.module.js"></script>
+    <script src="app/triangular/themes/theming.provider.js"></script>
+    <script src="app/triangular/themes/skins.provider.js"></script>
+    <script src="app/triangular/triangular.module.js"></script>
+    <script src="app/triangular/router/router.run.js"></script>
+    <script src="app/triangular/router/router.provider.js"></script>
+    <script src="app/triangular/router/router.module.js"></script>
+    <script src="app/triangular/profiler/profiler.module.js"></script>
+    <script src="app/triangular/profiler/profiler.config.js"></script>
+    <script src="app/triangular/layouts/layouts.provider.js"></script>
+    <script src="app/triangular/directives/directives.module.js"></script>
+    <script src="app/triangular/directives/theme-background.directive.js"></script>
+    <script src="app/triangular/directives/same-password.directive.js"></script>
+    <script src="app/triangular/directives/palette-background.directive.js"></script>
+    <script src="app/triangular/directives/countupto.directive.js"></script>
+    <script src="app/layouts/toolbar/toolbar.controller.js"></script>
+    <script src="app/layouts/rightsidenav/rightsidenav.controller.js"></script>
+    <script src="libs/angularcode-autocomplete/ui-bootstrap-tpls-0.9.0.js"></script>
+    <link href="libs/angularcode-autocomplete/autocomplete.css" type="text/css" rel="stylesheet" />
+    <script src="app/app.module.js"></script>
+    <!-- inject -->
+    <script src="app/layouts/loader/loader.controller.js"></script>
+    <script src="app/layouts/leftsidenav/leftsidenav.controller.js"></script>
+    <script src="app/layouts/footer/footer.controller.js"></script>
+    <script src="app/triangular/triangular.run.js"></script>
+    <script src="app/triangular/settings.provider.js"></script>
+    <script src="app/triangular/config.route.js"></script>
+    <script src="app/value.googlechart.js"></script>
+    <script src="app/translate.filter.js"></script>
+    <script src="app/error-page.controller.js"></script>
+    <script src="app/config.triangular.themes.js"></script>
+    <script src="app/config.triangular.settings.js"></script>
+    <script src="app/config.triangular.layout.js"></script>
+    <script src="app/config.route.js"></script>
+    <script src="app/config.chartjs.js"></script>
+    <script src="app/app.run.js"></script>
+    <script src="libs/angular-autocomplete/ngAutocomplete.js"></script>
+    <!--Google Maps Api-->
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places&key=AIzaSyD3yipyAvVQqN4ZzgR_wM_aNnu09k7AxI8"></script>
+    <script src="pulse.module/pulse.services/googleApi.service.js"></script>
+    <!--Google Maps Api-->
+    <!--ui-grid-->
+    <link rel="stylesheet" href="pulse.module/ui-grid/ui-grid.min.css" />
+    <script src="pulse.module/ui-grid/ui-grid.min.js"></script>
+    <script src="pulse.module/ui-grid/ui-grid.common.js"></script>
+    <!--ui-grid-->
+    <!-- pulse dashboards -->
+    <script src="app/pulse/pulse_server/pulse_server.module.js"></script>
+    <script src="app/pulse/pulse_server/controllers/pulse_server.controller.js"></script>
+    <script src="app/pulse/pulse_server/pulse_server.config.js"></script>
+    <!-- pulse charts -->
+    <!-- kiosk dashboard -->
+    <script src="app/pulse/kiosks/kiosks.module.js"></script>
+    <script src="app/pulse/kiosks/controllers/kiosks.dashboard.controller.js"></script>
+    <script src="app/pulse/kiosks/controllers/kiosks.detail.controller.js"></script>
+    <script src="app/pulse/kiosks/kiosks.config.js"></script>
+    <!-- kiosk dashboard -->
+    <!--IoT dashboard-->
+    <script src="app/pulse/iot/iot.module.js"></script>
+    <script src="app/pulse/iot/iot.config.js"></script>
+    <!--IoT dashboard-->
+    <!-- Websites dashboard-->
+    <script src="app/pulse/websites/websites.module.js"></script>
+    <script src="app/pulse/websites/websites.config.js"></script>
+    <!-- Websites dashboard-->
+    <!--Configuration-->
+    <script src="app/pulse/configuration/configuration.module.js"></script>
+    <script src="app/pulse/configuration/controllers/configuration.dashboard.controller.js"></script>
+    <script src="app/pulse/configuration/controllers/configuration.countries.controller.js"></script>
+    <script src="app/pulse/configuration/services/configuration.countries.service.js"></script>
+    <script src="app/pulse/configuration/controllers/configuration.kiosks.controller.js"></script>
+    <script src="app/pulse/configuration/services/configuration.kiosks.service.js"></script>
+    <script src="app/pulse/configuration/controllers/configuration.groups.controller.js"></script>
+    <script src="app/pulse/configuration/services/configuration.groups.service.js"></script>
+    <script src="app/pulse/configuration/controllers/configuration.licenses.controller.js"></script>
+    <script src="app/pulse/configuration/controllers/configuration.users.controller.js"></script>
+    <script src="app/pulse/configuration/services/configuration.user.service.js"></script>
+    <script src="app/pulse/configuration/controllers/configuration.clients.controller.js"></script>
+    <script src="app/pulse/configuration/controllers/configuration.clients.form.controller.js"></script>
+    <script src="app/pulse/configuration/services/configuration.clients.service.js"></script>
+    <script src="app/pulse/configuration/configuration.config.js"></script>
+    <!--Configuration-->
+    <!--SignalR-->
+    <script src="libs/signalr/jquery.signalR-2.1.1.min.js"></script>
+    <script src="http://localhost:9090/signalr/hubs"></script>
+    <!--SignalR-->
+    <!--bootstrap-->
+    <link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css" />
+    <script src="libs/bootstrap/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="libs/pulse-toggle-box.min.css" />
+
+    <!--pulse module-->
+    <script src="app/pulse/app.modules.js"></script>
+    <script src="pulse.module/pulse.session.js"></script>
+    <script src="pulse.module/pulse.config.js"></script>
+    <script src="pulse.module/pulse.services/authenticate.service.js"></script>
+    <script src="pulse.module/pulse.dialog/pulse-dialog-controller.js"></script>
+    <link rel="stylesheet" href="pulse.module/pulse.dialog/pulse-dialog-style.css" />
+    <script src="pulse.module/pulse.filter/pulse.filter.js"></script>
+    <script src="pulse.module/pulse.paging/pulse.paging.js"></script>
+    <script src="pulse.module/pulse.paging/pulse.paging.service.js"></script>
+    <script src="pulse.module/pulse.input.dialog/pulse.input.dialog.controller.js"></script>
+    <!--performance chart-->
+    <link rel="stylesheet" href="libs/epoch-chart/epoch.min.css" />
+    <script src="libs/epoch-chart/d3.min.js"></script>
+    <script src="libs/epoch-chart/epoch.min.js"></script>
+    <script src="libs/epoch-chart/ng-epoch.js"></script>
+    <script src="libs/epoch-chart/pie-chart.min.js"></script>
+
+    <!--pulse directive-->
+    <script src="app/pulse/directives/user-activities/user-activities.directive.js"></script>
+    <script src="app/pulse/directives/system-event/system-event.directive.js"></script>
+    <script src="app/pulse/directives/gauge-chart/gauge-chart.directive.js"></script>
+    <script src="app/pulse/directives/pie-chart/pie-chart.directive.js"></script>
+    <script src="app/pulse/directives/performance-graph/performance-graph.directive.js"></script>
+    <script src="app/pulse/directives/system-info/system-info.directive.js"></script>
+    <script src="app/pulse/directives/geo-chart/geo-chart.directive.js"></script>
+    <script src="app/pulse/directives/summary-info/summary-info.directive.js"></script>
+    <script src="app/pulse/directives/playback/playback.directive.js"></script>
+    <!--pulse directive-->
+    <!--pulse service-->
+    <script src="app/pulse/services/common/event.services.js"></script>
+    <script src="app/pulse/services/common/menu.services.js"></script>
+    <script src="app/pulse/services/signalRservice/base.service.js"></script>
+    <script src="app/pulse/services/signalRservice/pulse.server.service.js"></script>
+    <script src="app/pulse/services/signalRservice/pulse.kiosks.service.js"></script>
+    <script src="app/pulse/services/common/common.services.js"></script>
+    <script src="app/pulse/services/apiservice/base.api.services.js"></script>
+    <script src="app/pulse/services/common/settings.services.js"></script>
+    <!--pulse service-->
+    <!--pulse factory-->
+    <script src="app/pulse/factories/collector.factory.js"></script>
+    <script src="app/pulse/factories/request.factory.js"></script>
+    <script src="app/pulse/factories/signalr.factory.js"></script>
+    <script src="app/pulse/factories/notification.factory.js"></script>
+    <script src="app/pulse/factories/helper.factory.js"></script>
+    <script src="app/pulse/factories/base.validation.factory.js"></script>
+    <!--pulse factory-->
+    <!--Login-->
+    <script type="text/javascript" src="app/pulse/login/libs/spin.min.js"></script>
+    <script type="text/javascript" src="app/pulse/login/libs/angular-spinner.min.js"></script>
+    <script type="text/javascript" src="app/pulse/login/libs/angular-loading-spinner.js"></script>
+    <script type="text/javascript" src="app/pulse/login/login.module.js"></script>
+    <script type="text/javascript" src="app/pulse/login/login.config.js"></script>
+    <script type="text/javascript" src="app/pulse/login/controllers/login_controller.js"></script>
+    <link href="app/pulse/login/libs/wizardStyle.css" rel="stylesheet" />
+    <script type="text/javascript" src="app/pulse/login/controllers/profileWizard_controller.js"></script>
+    <!--Login-->
+
+    <!--Profile-->
+    <script type="text/javascript" src="app/pulse/profile/profile.module.js"></script>
+    <script type="text/javascript" src="app/pulse/profile/profile.config.js"></script>
+    <script type="text/javascript" src="app/pulse/profile/controllers/profile.controller.js"></script>
+    <script type="text/javascript" src="app/pulse/profile/services/profile.service.js"></script>
+    <!--Profile-->
+
+    <!--Password-->
+    <script type="text/javascript" src="app/pulse/password_management/password.module.js"></script>
+    <script type="text/javascript" src="app/pulse/password_management/password.config.js"></script>
+    <script type="text/javascript" src="app/pulse/password_management/controllers/password.controller.js"></script>
+    <!--Password-->
+</body>
+
+</html>
